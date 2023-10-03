@@ -18,7 +18,7 @@ Clone the repository.
 shell
 Copy
 git clone https://github.com/mahmoud-khalil8/FirebaseJs.git
-```
+
 
 Set up Firebase project and obtain credentials.
 
