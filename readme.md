@@ -41,8 +41,6 @@ Use the provided interface to add, update, or delete records in the Firebase dat
 Observe the real-time updates in the UI and the database.
 
 
-https://www.veed.io/embed/618cd397-74f1-452d-accc-a503d01565e2" width="744" height="504" frameborder="0" title="video_٢٠٢٣١٠٠٣_١٣١٤٥٦_edit.mp4 
-
 https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/1475fc75-03d9-457f-9236-89f2ad2f1e53
 
 
