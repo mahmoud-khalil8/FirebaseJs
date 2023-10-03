@@ -45,6 +45,7 @@ Observe the real-time updates in the UI and the database.
 
 https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/94781753-9697-411e-bd2b-c8074e932945
 
+![video_٢٠٢٣١٠٠٣_١٣١٤٥٦_edit mp4](https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/28d44d13-e4a4-4c45-86e3-a93a92460415)
 
 
 
