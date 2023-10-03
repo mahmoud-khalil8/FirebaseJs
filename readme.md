@@ -43,6 +43,10 @@ Observe the real-time updates in the UI and the database.
 
 
 
+https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/94781753-9697-411e-bd2b-c8074e932945
+
+
+
 
 
 ![Screenshot_10](https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/26dcd8c6-e5cf-4c0a-9b22-bb6e61e69425)
