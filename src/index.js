@@ -1,4 +1,4 @@
-import { getFirestore, collection,addDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
+import { getFirestore, collection,addDoc,onSnapshot,doc,updateDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
 
 const db=getFirestore() ;
 const dbRef=collection(db,"contacts") ;
@@ -34,7 +34,7 @@ const showContacts=(contacts)=>{
         <h3 class="contact-title">${contact.firstName} ${contact.lastName}</h3>
         <p class="contact-subtitle">${contact.email}</p>
       </div>
-      <div>
+      <div id=${contact.id}>
 
           <button class="edit-button">Edit</button>
           <button class="delete-button">Delete</button>
@@ -60,6 +60,12 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const showForm=()=>{
   formOverlay.style.display="flex" ;
+  formOverlay.removeAttribute("contact-id" )
+  firstName.value="" ;
+  lastName.value="" ;
+  age.value="" ;
+  phone.value="" ;
+  email.value="" ;
 }
 
 addBtn.addEventListener("click",showForm) ;
@@ -83,20 +89,40 @@ formOverlay.addEventListener("click",hide) ;
 const submitClicked=async(e)=>{
   e.preventDefault() ;
   checkErrors([firstName,lastName,age,phone,email])
+
   if(Object.keys(errs).length===0){
-    try{
-      
-      await addDoc(dbRef,{
-        firstName:firstName.value,
-        lastName:lastName.value,
-        age:age.value ,
-        phone:phone.value ,
-        email:email.value
-      })
-      hide() ;
+    if(formOverlay.getAttribute("contact-id")){
+      const docRef=doc(db,"contacts" ,formOverlay.getAttribute("contact-id"))
+      try{
+            await updateDoc(docRef,{
+
+            firstName:firstName.value ,
+            lastName:lastName.value ,
+            age:age.value ,
+            phone:phone.value ,
+            email:email.value  ,
+          })
+          hide() ;
+        }catch(err){
+          displayErrorMessage("Unable to store data right now. Please try again later.");
+        }
     }
-    catch(err){
-      displayErrorMessage("Unable to store data right now. Please try again later.");
+    else{
+
+        try{
+          
+          await addDoc(dbRef,{
+            firstName:firstName.value,
+            lastName:lastName.value,
+            age:age.value ,
+            phone:phone.value ,
+            email:email.value
+          })
+          hide() ;
+        }
+        catch(err){
+          displayErrorMessage("Unable to store data right now. Please try again later.");
+        }
     }
   } 
 }
@@ -137,11 +163,43 @@ const displayErrorMessage = (message) => {
 
 };
 submit.addEventListener("click",submitClicked)
+const deleteButtonPressed =async(id)=>{
+  const confirmed=confirm("are you sure you want to delete it")
+  if(confirmed){
+    const docRef=doc(db,"contacts" ,id)
+    await deleteDoc(docRef) ;
 
+    try{
+    }
+    catch(err){
+      displayErrorMessage("Unable to delete data right now. Please try again later.");
+
+    }
+  }
+}
 //click to show information
-const showInformation=(event) =>{
+const contactListPressed=  (event) =>{
   const id =event.target.closest("div").getAttribute("id") ;  
-  displayInformationById(id) ;
+  if(event.target.className==="edit-button"){
+    formOverlay.style.display="flex" ;
+    const contact=contacts.find(contact=>{
+      return contact.id===id ;
+    })
+    firstName.value=contact.firstName;
+    lastName.value=contact.lastName;
+    age.value=contact.age;
+    phone.value=contact.phone;
+    email.value=contact.email;
+    formOverlay.setAttribute("contact-id",contact.id)
+
+  }
+  else if(event.target.className==="delete-button"){
+    deleteButtonPressed(id)
+  }
+  else{
+
+    displayInformationById(id) ;
+  }
 }
 const rightCol=document.getElementById("right")
 const details=document.createElement("div") ;
@@ -166,6 +224,6 @@ const displayInformationById=(id)=>{
 
   rightCol.appendChild(details) ;
 }
-contactWrapper.addEventListener("click",showInformation) ;
+contactWrapper.addEventListener("click",contactListPressed) ;
 
  
