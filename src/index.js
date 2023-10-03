@@ -186,6 +186,8 @@ const contactListPressed=  (event) =>{
     const contact=contacts.find(contact=>{
       return contact.id===id ;
     })
+    details.innerHTML="";
+
     firstName.value=contact.firstName;
     lastName.value=contact.lastName;
     age.value=contact.age;
