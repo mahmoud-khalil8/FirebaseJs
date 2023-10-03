@@ -40,8 +40,7 @@ Interact with the application.
 Use the provided interface to add, update, or delete records in the Firebase database.
 Observe the real-time updates in the UI and the database.
 
+![video_٢٠٢٣١٠٠٣_١٣١٤٥٦_edit](https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/bbe9ebbe-dee6-4dd4-9b71-3c6390f0f57e)
 
-https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/5b693861-5e20-45b9-8783-aba60015b71f
-![video_٢٠٢٣١٠٠٣_١٣١٤٥٦_edit (1)](https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/19f35ec5-fe24-49ad-a60b-7d7b8440bb2c)
 
 ![Screenshot_10](https://github.com/mahmoud-khalil8/FirebaseJs/assets/78821632/26dcd8c6-e5cf-4c0a-9b22-bb6e61e69425)
