@@ -168,6 +168,7 @@ const deleteButtonPressed =async(id)=>{
   if(confirmed){
     const docRef=doc(db,"contacts" ,id)
     await deleteDoc(docRef) ;
+    details.innerHTML="";
 
     try{
     }
