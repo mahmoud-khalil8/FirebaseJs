@@ -1,9 +1,9 @@
-Firebase JavaScript Project
+## Firebase JavaScript Project
 This project demonstrates how to work with Firebase database using JavaScript. It includes HTML/CSS markup, implements CRUD actions (Create, Read, Update, Delete), handles errors, performs form validation,and shows users informations in the database.
 
 This project showcases an application that interacts with a Firebase Realtime Database using JavaScript.
 
-Features
+## Features
 Firebase Realtime Database integration
 HTML/CSS markup for user interface
 Create new records in the database
@@ -12,7 +12,7 @@ Update existing records in the database
 Delete records from the database
 Error handling for Firebase operations
 Form validation for user input
-Installation
+## Installation
 Clone the repository.
 
 shell
