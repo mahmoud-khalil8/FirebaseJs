@@ -19,6 +19,63 @@ It uses a JSON-like data structure, making it easy to store and retrieve data in
 The database automatically handles data synchronization and provides offline capabilities, enabling your app to work seamlessly even when the device is offline.
 Firebase Realtime Database supports listeners for real-time data changes, allowing you to update the UI automatically whenever the data changes.
 It also provides powerful querying capabilities, allowing you to filter, order, and limit data retrieval based on specific criteria.
+
+----------------------------
+
+## Read Operations
+### Get a Document by ID
+To retrieve a single document from Firestore based on its unique document ID, you can use the doc() method followed by the get() method:
+
+const docRef = db.collection('collectionName').doc('documentId');
+docRef.get().then((doc) => {
+    // Document data is available in doc.data()
+    
+}).catch((error) => {
+  console.log('Error getting document:', error);
+});
+
+### Get All Documents in a Collection
+To retrieve all documents within a collection, you can use the get() method on the collection reference:
+
+const collectionRef = db.collection('collectionName');
+collectionRef.get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    // Document data is available in doc.data()
+  });
+}).catch((error) => {
+  console.log('Error getting documents:', error);
+});
+
+## Create Operation
+To create a new document in Firestore, you can use the add() method on the collection reference. Firestore will automatically generate a unique document ID for the new document:
+
+const collectionRef = db.collection('collectionName');
+collectionRef.add({ /* document data */ }).then((docRef) => {
+  console.log('Document written with ID: ', docRef.id);
+}).catch((error) => {
+  console.error('Error adding document: ', error);
+});
+## Update Operation
+To update an existing document in Firestore, you can use the update() method on the document reference. You can pass an object containing the fields and their updated values:
+
+const docRef = db.collection('collectionName').doc('documentId');
+docRef.update({ /* updated fields and values */ }).then(() => {
+  console.log('Document successfully updated');
+}).catch((error) => {
+  console.error('Error updating document: ', error);
+});
+## Delete Operation
+To delete a document from Firestore, you can use the delete() method on the document reference:
+
+const docRef = db.collection('collectionName').doc('documentId');
+docRef.delete().then(() => {
+  console.log('Document successfully deleted');
+}).catch((error) => {
+  console.error('Error deleting document: ', error);
+});
+
+----------------------------
+
 ## Installation
 Clone the repository.
 
