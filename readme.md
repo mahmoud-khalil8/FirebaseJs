@@ -26,6 +26,8 @@ It also provides powerful querying capabilities, allowing you to filter, order, 
 ### Get a Document by ID
 To retrieve a single document from Firestore based on its unique document ID, you can use the doc() method followed by the get() method:
 
+```javascript
+
 const docRef = db.collection('collectionName').doc('documentId');
 docRef.get().then((doc) => {
     // Document data is available in doc.data()
@@ -33,9 +35,12 @@ docRef.get().then((doc) => {
 }).catch((error) => {
   console.log('Error getting document:', error);
 });
+```
+
 
 ### Get All Documents in a Collection
 To retrieve all documents within a collection, you can use the get() method on the collection reference:
+```javascript
 
 const collectionRef = db.collection('collectionName');
 collectionRef.get().then((querySnapshot) => {
@@ -45,9 +50,11 @@ collectionRef.get().then((querySnapshot) => {
 }).catch((error) => {
   console.log('Error getting documents:', error);
 });
+```
 
 ## Create Operation
 To create a new document in Firestore, you can use the add() method on the collection reference. Firestore will automatically generate a unique document ID for the new document:
+```javascript
 
 const collectionRef = db.collection('collectionName');
 collectionRef.add({ /* document data */ }).then((docRef) => {
@@ -55,8 +62,10 @@ collectionRef.add({ /* document data */ }).then((docRef) => {
 }).catch((error) => {
   console.error('Error adding document: ', error);
 });
+```
 ## Update Operation
 To update an existing document in Firestore, you can use the update() method on the document reference. You can pass an object containing the fields and their updated values:
+```javascript
 
 const docRef = db.collection('collectionName').doc('documentId');
 docRef.update({ /* updated fields and values */ }).then(() => {
@@ -64,8 +73,10 @@ docRef.update({ /* updated fields and values */ }).then(() => {
 }).catch((error) => {
   console.error('Error updating document: ', error);
 });
+```
 ## Delete Operation
 To delete a document from Firestore, you can use the delete() method on the document reference:
+```javascript
 
 const docRef = db.collection('collectionName').doc('documentId');
 docRef.delete().then(() => {
@@ -73,7 +84,7 @@ docRef.delete().then(() => {
 }).catch((error) => {
   console.error('Error deleting document: ', error);
 });
-
+```
 ----------------------------
 
 ## Installation
