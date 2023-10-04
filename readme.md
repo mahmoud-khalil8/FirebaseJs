@@ -11,7 +11,14 @@ Read existing records from the database
 Update existing records in the database
 Delete records from the database
 Error handling for Firebase operations
-Form validation for user input
+Form validation for user input 
+
+## Real-time Database
+Firebase Realtime Database is a cloud-hosted NoSQL database that allows real-time data synchronization across clients.
+It uses a JSON-like data structure, making it easy to store and retrieve data in real-time.
+The database automatically handles data synchronization and provides offline capabilities, enabling your app to work seamlessly even when the device is offline.
+Firebase Realtime Database supports listeners for real-time data changes, allowing you to update the UI automatically whenever the data changes.
+It also provides powerful querying capabilities, allowing you to filter, order, and limit data retrieval based on specific criteria.
 ## Installation
 Clone the repository.
 
